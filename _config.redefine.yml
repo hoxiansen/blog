@@ -1,0 +1,48 @@
+base_info:
+  title: HOXIANSEN
+  author: hoxiansen
+  url: https://hoxiansen.top
+style:
+  avatar: https://oss.hoxiansen.top/images/recycle.jpg
+  favicon: https://oss.hoxiansen.top/images/recycle.jpg
+  first_screen:
+    description: 
+    background_image: https://oss.hoxiansen.top/wallpapers/%E7%BE%8E%E4%B8%BD%E9%9B%AA%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%A3%8E%E6%99%AF4k%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg
+  hover:
+    shadow: true
+    scale: true
+menu:
+  Home: 
+    path: /
+    icon: fa-regular fa-house
+  Archives: 
+    path: /archives
+    icon: fa-regular fa-archive
+home_article:
+  date_format: YYYY/MM/DD
+  category:
+    enable: true
+    limit: 5
+  tag:
+    enable: true
+    limit: 5
+copyright_info:
+  enable: false
+post:
+  word_count:
+    enable: true
+    wordcount: true
+    min2read: true
+  author_label:
+    enable: false
+local_search:
+  enable: true
+  preload: true
+cdn:
+  enable: true
+pjax:
+  enable: true
+footer: 
+  runtime: true
+  start_time: 2023/1/5 13:58:07
+  icp: 浙ICP备20006526号-2
