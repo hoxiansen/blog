@@ -1,13 +1,16 @@
 .markdown-body {
   font-family: "Open Sans", "Noto Sans SC", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .markdown-body blockquote {
   box-sizing: border-box;
-  border-left: 5px solid var(--default-text-color);
   margin: 20px 0;
   color: var(--default-text-color);
-  background: var(--second-background-color);
+  background: var(--third-background-color);
+  padding: 0 1rem 0 0.5rem;
+  border-radius: 0 $redefine-border-radius-medium $redefine-border-radius-medium 0;
+  position: relative;
+  border-left: 5px solid var(--default-text-color);
 }
 .markdown-body blockquote p,
 .markdown-body blockquote ul,
@@ -15,8 +18,10 @@
   padding: 5px 5px 5px 10px;
 }
 .markdown-body p {
-  line-height: 2;
+  line-height: 1.5;
   color: var(--default-text-color);
+  margin-bottom: 1rem;
+  margin-top: 0;
 }
 .markdown-body a {
   position: relative;
@@ -83,50 +88,57 @@
   font-family: "Noto Sans", "Noto Sans SC", sans-serif;
   color: var(--second-text-color);
   line-height: 1.5;
+  margin-bottom: 1rem !important;
 redefine-tablet()
 }
 .markdown-body h1 {
-  font-size: 1.8rem;
+  font-size: 3.2rem;
   font-weight: 600;
   border-bottom: solid 2px var(--fourth-text-color);
+  margin-top: 5rem;
 redefine-tablet()
 }
 .markdown-body h2 {
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   font-weight: 600;
   padding: 3px 0;
   border-bottom: solid 2px var(--fourth-text-color);
+  margin-top: 4rem;
 redefine-tablet()
 }
 .markdown-body h3 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 550;
+  margin-top: 2.8rem;
 redefine-tablet()
 }
 .markdown-body h4 {
   font-size: 1.5rem;
   font-weight: 550;
+  margin-top: 2.5rem;
 redefine-tablet()
 }
 .markdown-body h5 {
   font-size: 1.28rem;
-  font-weight: 500;
+  font-weight: 550;
+  margin-top: 2.2rem;
 redefine-tablet()
 }
 .markdown-body h6 {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 550;
   line-height: 1.2;
+  margin-top: 2rem;
 redefine-tablet()
 }
 .markdown-body img {
   box-sizing: border-box;
-  border-radius: 12px;
+  border-radius: $redefine-border-radius-medium;
   max-width: 100%;
   cursor: zoom-in;
   display: block;
   box-shadow: 0 0 2px var(--shadow-color);
-  margin: 10px auto 2px;
+  margin: 1rem auto 1rem;
 }
 .markdown-body > table {
   border-spacing: 0;
@@ -151,5 +163,5 @@ redefine-tablet()
   border: 1px solid var(--fourth-text-color);
 }
 .markdown-body > table tr:nth-child(2n) {
-  background-color: var(--second-background-color);
+  background-color: var(--third-background-color);
 }

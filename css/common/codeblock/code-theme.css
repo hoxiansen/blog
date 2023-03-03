@@ -1,10 +1,12 @@
 :root {
   --background-color: #fff;
-  --second-background-color: #f2f2f2;
+  --background-color-transparent: rgba(255,255,255,0.6);
+  --second-background-color: #fafafa;
+  --third-background-color: #f4f4f4;
   --primary-color: #005080;
   --first-text-color: #323739;
   --second-text-color: #343a3c;
-  --third-text-color: #6e7a7e;
+  --third-text-color: #5c6669;
   --fourth-text-color: #eaeced;
   --default-text-color: #373d3f;
   --border-color: #b3b3b3;
@@ -29,17 +31,24 @@
   --note-black-title-bg: #e9e9e9;
   --note-purple-title-bg: #f9e9fd;
   --first-screen-text-color: #fff;
+  --first-screen-icons-container-border-color: rgba(255,255,255,0.35);
+  --first-screen-icons-container-background-color: rgba(255,255,255,0.3);
   --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
   --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+  --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --mermaid-theme: '';
 }
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #fff;
-    --second-background-color: #f2f2f2;
+    --background-color-transparent: rgba(255,255,255,0.6);
+    --second-background-color: #fafafa;
+    --third-background-color: #f4f4f4;
     --primary-color: #005080;
     --first-text-color: #323739;
     --second-text-color: #343a3c;
-    --third-text-color: #6e7a7e;
+    --third-text-color: #5c6669;
     --fourth-text-color: #eaeced;
     --default-text-color: #373d3f;
     --border-color: #b3b3b3;
@@ -64,14 +73,21 @@
     --note-black-title-bg: #e9e9e9;
     --note-purple-title-bg: #f9e9fd;
     --first-screen-text-color: #fff;
+    --first-screen-icons-container-border-color: rgba(255,255,255,0.35);
+    --first-screen-icons-container-background-color: rgba(255,255,255,0.3);
     --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
     --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --mermaid-theme: '';
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #202124;
-    --second-background-color: #2a2c30;
+    --background-color-transparent: rgba(32,33,36,0.4);
+    --second-background-color: #242529;
+    --third-background-color: #292b2f;
     --primary-color: #005080;
     --first-text-color: #d2d2d7;
     --second-text-color: #cbcbd1;
@@ -100,17 +116,24 @@
     --note-black-title-bg: #1e1e1e;
     --note-purple-title-bg: #4e1e4e;
     --first-screen-text-color: #d1d1b6;
+    --first-screen-icons-container-border-color: rgba(197,197,197,0.35);
+    --first-screen-icons-container-background-color: rgba(197,197,197,0.3);
     --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
     --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --mermaid-theme: '';
   }
 }
 .light-mode {
   --background-color: #fff;
-  --second-background-color: #f2f2f2;
+  --background-color-transparent: rgba(255,255,255,0.6);
+  --second-background-color: #fafafa;
+  --third-background-color: #f4f4f4;
   --primary-color: #005080;
   --first-text-color: #323739;
   --second-text-color: #343a3c;
-  --third-text-color: #6e7a7e;
+  --third-text-color: #5c6669;
   --fourth-text-color: #eaeced;
   --default-text-color: #373d3f;
   --border-color: #b3b3b3;
@@ -135,12 +158,19 @@
   --note-black-title-bg: #e9e9e9;
   --note-purple-title-bg: #f9e9fd;
   --first-screen-text-color: #fff;
+  --first-screen-icons-container-border-color: rgba(255,255,255,0.35);
+  --first-screen-icons-container-background-color: rgba(255,255,255,0.3);
   --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
   --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+  --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --mermaid-theme: '';
 }
 .dark-mode {
   --background-color: #202124;
-  --second-background-color: #2a2c30;
+  --background-color-transparent: rgba(32,33,36,0.4);
+  --second-background-color: #242529;
+  --third-background-color: #292b2f;
   --primary-color: #005080;
   --first-text-color: #d2d2d7;
   --second-text-color: #cbcbd1;
@@ -169,13 +199,18 @@
   --note-black-title-bg: #1e1e1e;
   --note-purple-title-bg: #4e1e4e;
   --first-screen-text-color: #d1d1b6;
+  --first-screen-icons-container-border-color: rgba(197,197,197,0.35);
+  --first-screen-icons-container-background-color: rgba(197,197,197,0.3);
   --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
   --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+  --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+  --mermaid-theme: '';
 }
 :root {
   --code-foreground: #3b4143;
   --code-background: #f2f2f2;
-  --highlight-background: #f6f6f6;
+  --highlight-background: #f8f8f8;
   --highlight-foreground: #3b4143;
   --highlight-keyword: #d73a49;
   --highlight-link: #d73a49;
@@ -198,7 +233,7 @@
   :root {
     --code-foreground: #3b4143;
     --code-background: #f2f2f2;
-    --highlight-background: #f6f6f6;
+    --highlight-background: #f8f8f8;
     --highlight-foreground: #3b4143;
     --highlight-keyword: #d73a49;
     --highlight-link: #d73a49;
@@ -245,7 +280,7 @@
 .light-mode {
   --code-foreground: #3b4143;
   --code-background: #f2f2f2;
-  --highlight-background: #f6f6f6;
+  --highlight-background: #f8f8f8;
   --highlight-foreground: #3b4143;
   --highlight-keyword: #d73a49;
   --highlight-link: #d73a49;
