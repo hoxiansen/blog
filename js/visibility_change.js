@@ -1,5 +1,5 @@
-let originTitle = document.title;
-let titleTime;
+var originTitle = document.title;
+var titleTime;
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         document.title = '(*σ´∀`)σ 我走噜~ ' + originTitle;
