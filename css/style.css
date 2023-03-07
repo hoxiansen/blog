@@ -5001,19 +5001,19 @@ pre .deletion {
 }
 @media (prefers-color-scheme: light) {
   .first-screen-container {
-    background: url("https://oss.hoxiansen.top/wallpapers/%E7%BE%8E%E4%B8%BD%E9%9B%AA%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%A3%8E%E6%99%AF4k%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg") center center/cover no-repeat !important;
+    background: url("https://oss.hoxiansen.top/wallpapers/0.jpg") center center/cover no-repeat !important;
   }
 }
 @media (prefers-color-scheme: dark) {
   .first-screen-container {
-    background: url("https://oss.hoxiansen.top/wallpapers/%E7%BE%8E%E4%B8%BD%E9%9B%AA%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%A3%8E%E6%99%AF4k%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg") center center/cover no-repeat !important;
+    background: url("https://oss.hoxiansen.top/wallpapers/0.jpg") center center/cover no-repeat !important;
   }
 }
 .light-mode .first-screen-container {
-  background: url("https://oss.hoxiansen.top/wallpapers/%E7%BE%8E%E4%B8%BD%E9%9B%AA%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%A3%8E%E6%99%AF4k%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg") center center/cover no-repeat !important;
+  background: url("https://oss.hoxiansen.top/wallpapers/0.jpg") center center/cover no-repeat !important;
 }
 .dark-mode .first-screen-container {
-  background: url("https://oss.hoxiansen.top/wallpapers/%E7%BE%8E%E4%B8%BD%E9%9B%AA%E5%B1%B1%E6%B9%96%E6%B3%8A%E9%A3%8E%E6%99%AF4k%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg") center center/cover no-repeat !important;
+  background: url("https://oss.hoxiansen.top/wallpapers/0.jpg") center center/cover no-repeat !important;
 }
 .image-viewer-container {
   position: fixed;
