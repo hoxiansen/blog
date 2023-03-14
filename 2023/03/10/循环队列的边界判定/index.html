@@ -14,18 +14,18 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://hoxiansen.top/tags/hexo/"/>
+    <link rel="canonical" href="https://hoxiansen.top/2023/03/10/循环队列的边界判定/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Redefine Theme">
+    <meta property="og:title" content="循环队列的边界判定">
     <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="https://hoxiansen.toptags/Hexo/index.html">
+    <meta property="og:url" content="https://hoxiansen.top2023/03/10/循环队列的边界判定/">
     
     <meta property="og:site_name" content="HOXIANSEN&#39;s Blog">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Redefine Theme">
+    <meta name="twitter:title" content="循环队列的边界判定">
     <meta name="twitter:description" content="Hexo Theme Redefine">
     <meta name="twitter:image" content="https://oss.hoxiansen.top/images/recycle.jpg">
     <!--- Icon Part-->
@@ -36,7 +36,7 @@
     
     <title>
         
-            标签: Hexo -
+            循环队列的边界判定 -
         
         HOXIANSEN&#39;s Blog
     </title>
@@ -267,41 +267,277 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="tag-container">
-        <div class="tag-name"><i class="fa-solid fa-tag"></i>&nbsp;Hexo
-        </div>
-        <div class="tag-post-list">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
             
-<div class="archive-list-container">
+             
+                <div class="article-title">       
+                    <img src="https://oss.hoxiansen.top/wallpapers/5.jpg" alt="循环队列的边界判定" />
+                    <h1 class="article-title-cover">循环队列的边界判定</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://oss.hoxiansen.top/images/recycle.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">hoxiansen</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-03-10 15:14:49</span>
+        <span class="mobile">2023-03-10 15:14</span>
+        <span class="hover-info">创建</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-              
-              <li class="article-item" date-is='03-06'>
-                <a href="/2023/03/06/Hexo%E8%BF%9B%E5%85%A5%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9%E6%A0%87%E9%A2%98/">
-                  <span class="article-title">Hexo进入离开页面动态修改标题</span>
-                </a>
-              </li>
-              
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="pc">2023-03-14 15:14:39</span>
+            <span class="mobile">2023-03-14 15:14</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                    </li>
+                
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%98%9F%E5%88%97/">队列</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>401 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-        </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>循环队列通常使用数组来实现，需要定义队头<code>head</code>和队尾<code>tail</code>两个指针，在每次入队时<code>tail++</code>出队时<code>head++</code>。但是在判断队列空和满时总是想不明白，这里记录一下。</p>
+<h2 id="指针初始化"><a href="#指针初始化" class="headerlink" title="指针初始化"></a>指针初始化</h2><p>在初始化头尾指针时，有两种初始化方式：</p>
+<h3 id="1-头指针和尾指针分别指向对应的头尾节点"><a href="#1-头指针和尾指针分别指向对应的头尾节点" class="headerlink" title="1. 头指针和尾指针分别指向对应的头尾节点"></a>1. 头指针和尾指针分别指向对应的头尾节点</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> head=<span class="number">0</span>, tail=-<span class="number">1</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/status1.png"
+                     
+                ></p>
+<h3 id="2-头指针指向头节点，尾指针指向尾节点的下一个结点"><a href="#2-头指针指向头节点，尾指针指向尾节点的下一个结点" class="headerlink" title="2. 头指针指向头节点，尾指针指向尾节点的下一个结点"></a>2. 头指针指向头节点，尾指针指向尾节点的下一个结点</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> head=<span class="number">0</span>, tail=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/status2.png"
+                     
+                ></p>
+<div class="note note-warning icon-padding"><i class="note-icon fa-solid fa-exclamation-circle"></i><p>可以看到，不管是哪种初始化方式，队列空时和队列满时的头尾指针相对位置都是<strong>一样的</strong>。</p>
+</div>
+
+<h2 id="判断空、满"><a href="#判断空、满" class="headerlink" title="判断空、满"></a>判断空、满</h2><p>在这种情况下怎么判断队列到底是空还是满呢？也有两种方式：</p>
+<h3 id="1-引入size字段，表示队列长度"><a href="#1-引入size字段，表示队列长度" class="headerlink" title="1. 引入size字段，表示队列长度"></a>1. 引入<code>size</code>字段，表示队列长度</h3><p>此时不论使用哪种初始化方式，都可以完全不管头尾指针的位置，直接使用<code>size</code>来判断。</p>
+<ul>
+<li>判断队列空：<code>size==0;</code></li>
+<li>判断队列满：<code>size==maxLength;</code></li>
+</ul>
+<h3 id="2-head和tail只增不减"><a href="#2-head和tail只增不减" class="headerlink" title="2. head和tail只增不减"></a>2. <code>head</code>和<code>tail</code>只增不减</h3><p>与上面在入队（或出队）后需要<code>tail=(tail+1)%maxLength</code>不同，每次入队（或出队）后只需要<code>tail++</code>，而不用取余。<br>这样的好处就是可以通过相减得到当前队列大小<code>size</code>，然后再通过<code>size</code>来判断队列的空和满。</p>
+<div class="note-large notel-blue"><div class="notel-title"><p>不同初始化方式的size计算</p>
+</div><div class="notel-content"><ul>
+<li>对于第一种初始化方式：<code>int head=0, tail=-1;</code>，<code>size=tail-head+1</code>;</li>
+<li>对于第二种初始化方式：<code>int head=0, tail=0;</code>，<code>size=tail-head</code>。</li>
+</ul>
+ </div></div>
+
+<h2 id="LeetCode链接"><a href="#LeetCode链接" class="headerlink" title="LeetCode链接"></a>LeetCode链接</h2><p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/design-circular-queue/" >622. 设计循环队列 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：循环队列的边界判定</li>
+        <li>本文作者：hoxiansen</li>
+        <li>创建时间：2023-03-10 15:14:49</li>
+        <li>
+            本文链接：https://hoxiansen.top/2023/03/10/循环队列的边界判定/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E9%98%9F%E5%88%97/">#队列</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%95%B0%E7%BB%84/">#数组</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            <div class="recommended-article">
+  <div class="recommended-article-header">
+    <i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><span>推荐阅读</span>
+  </div>
+  <div class="recommended-article-group"><a class="recommended-article-item" href="/2023/01/06/怎么加快GitHub访问速度/" title="怎么加快GitHub访问速度" rel="bookmark">
+  <img src="https://oss.hoxiansen.top/wallpapers/1.jpg" alt="怎么加快GitHub访问速度">
+  <span class="title">怎么加快GitHub访问速度</span>
+</a><a class="recommended-article-item" href="/2023/03/03/链表反转/" title="链表反转" rel="bookmark">
+  <img src="https://oss.hoxiansen.top/wallpapers/3.jpg" alt="链表反转">
+  <span class="title">链表反转</span>
+</a><a class="recommended-article-item" href="/2023/03/06/Hexo进入离开页面动态修改标题/" title="Hexo进入离开页面动态修改标题" rel="bookmark">
+  <img src="https://oss.hoxiansen.top/wallpapers/0.jpg" alt="Hexo进入离开页面动态修改标题">
+  <span class="title">Hexo进入离开页面动态修改标题</span>
+</a></div>
+</div>
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/03/06/Hexo%E8%BF%9B%E5%85%A5%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9%E6%A0%87%E9%A2%98/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Hexo进入离开页面动态修改标题</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
     </div>
-
-    <div class="tag-paginator">
-        <div class="paginator">
     
 
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://comment.hoxiansen.top',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
     
 </div>
 
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">循环队列的边界判定</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">指针初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A4%B4%E6%8C%87%E9%92%88%E5%92%8C%E5%B0%BE%E6%8C%87%E9%92%88%E5%88%86%E5%88%AB%E6%8C%87%E5%90%91%E5%AF%B9%E5%BA%94%E7%9A%84%E5%A4%B4%E5%B0%BE%E8%8A%82%E7%82%B9"><span class="nav-text">1. 头指针和尾指针分别指向对应的头尾节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A4%B4%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E5%A4%B4%E8%8A%82%E7%82%B9%EF%BC%8C%E5%B0%BE%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E5%B0%BE%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9"><span class="nav-text">2. 头指针指向头节点，尾指针指向尾节点的下一个结点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%A9%BA%E3%80%81%E6%BB%A1"><span class="nav-text">判断空、满</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BC%95%E5%85%A5size%E5%AD%97%E6%AE%B5%EF%BC%8C%E8%A1%A8%E7%A4%BA%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6"><span class="nav-text">1. 引入size字段，表示队列长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-head%E5%92%8Ctail%E5%8F%AA%E5%A2%9E%E4%B8%8D%E5%87%8F"><span class="nav-text">2. head和tail只增不减</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode%E9%93%BE%E6%8E%A5"><span class="nav-text">LeetCode链接</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
     </div>
 </div>
 
@@ -387,6 +623,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -500,6 +757,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/layouts/toc.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/plugins/tabs.js"></script>
     
 </div>
 
