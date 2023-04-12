@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Hexo Theme Redefine">
-    <meta name="description" content="Hexo Theme Redefine">
-    <meta name="author" content="hoxiansen">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
     
-        
-            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    <meta name="author" content="hoxiansen">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
         
     
     <!--- Seo Part-->
@@ -18,21 +19,31 @@
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="循环队列的边界判定">
-    <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="https://hoxiansen.top2023/03/10/循环队列的边界判定/">
     
-    <meta property="og:site_name" content="HOXIANSEN&#39;s Blog">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="循环队列的边界判定">
-    <meta name="twitter:description" content="Hexo Theme Redefine">
-    <meta name="twitter:image" content="https://oss.hoxiansen.top/images/recycle.jpg">
+        <meta name="description" content="引言循环队列通常使用数组来实现，需要定义队头head和队尾tail两个指针，在每次入队时tail++出队时head++。但是在判断队列空和满时总是想不明白，这里记录一下。 指针初始化在初始化头尾指针时，有两种初始化方式： 1. 头指针和尾指针分别指向对应的头尾节点1int head&#x3D;0, tail&#x3D;-1;   2. 头指针指向头节点，尾指针指向尾节点的下一个结点1int head&#x3D;0, tail&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环队列的边界判定">
+<meta property="og:url" content="https://hoxiansen.top/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="引言循环队列通常使用数组来实现，需要定义队头head和队尾tail两个指针，在每次入队时tail++出队时head++。但是在判断队列空和满时总是想不明白，这里记录一下。 指针初始化在初始化头尾指针时，有两种初始化方式： 1. 头指针和尾指针分别指向对应的头尾节点1int head&#x3D;0, tail&#x3D;-1;   2. 头指针指向头节点，尾指针指向尾节点的下一个结点1int head&#x3D;0, tail&#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hoxiansen.top/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/status1.png">
+<meta property="og:image" content="https://hoxiansen.top/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/status2.png">
+<meta property="article:published_time" content="2023-03-10T07:14:49.000Z">
+<meta property="article:modified_time" content="2023-03-14T07:14:39.322Z">
+<meta property="article:author" content="hoxiansen">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="队列">
+<meta property="article:tag" content="数组">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hoxiansen.top/2023/03/10/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E8%BE%B9%E7%95%8C%E5%88%A4%E5%AE%9A/status1.png">
+    
     <!--- Icon Part-->
     <link rel="icon" type="image/png" href="https://oss.hoxiansen.top/images/recycle.jpg" sizes="192x192">
     <link rel="apple-touch-icon" sizes="180x180" href="https://oss.hoxiansen.top/images/recycle.jpg">
-    <meta name="theme-color" content="#005080">
+    <meta name="theme-color" content="#A31F34">
     <link rel="shortcut icon" href="https://oss.hoxiansen.top/images/recycle.jpg">
+    <!--- Page Info-->
     
     <title>
         
@@ -43,9 +54,14 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/assets/fonts.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/assets/fonts.css">
+    <!--- Font Part-->
     
     
+    
+    
+
+    <!--- Inject Part-->
     
         
             
@@ -54,25 +70,21 @@
     
             
                 
-                    <meta name="baidu-site-verification" content="codeva-dfccbewlNt" />
-                
-    
-            
-                
                     <script data-pjax src="/js/visibility_change.js" type="text/javascript"></script>
                 
     
     <script id="hexo-configurations">
-    let REDEFINE = window.REDEFINE || {};
-    REDEFINE.hexo_config = {"hostname":"hoxiansen.top","root":"/","language":"zh-CN","path":"search.json"};
-    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://oss.hoxiansen.top/images/recycle.jpg","favicon":"https://oss.hoxiansen.top/images/recycle.jpg","og_image":{"enable":false,"image_url":null},"article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://oss.hoxiansen.top/wallpapers/4.jpg","dark":"https://oss.hoxiansen.top/wallpapers/4-dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"font_sizes":{"title":"2.8rem","subtitle":"1.5rem"},"line_height":1.2,"title":"♻","subtitle":{"enable":false,"list":[]},"custom_font":{"enable":false,"font_family":null,"font_url":null}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"mac","custom_font":{"enable":false,"font_family":null,"font_url":null}},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"1.2.1","friend_links":{"columns":2},"home_article":{"date_format":"YYYY/MM/DD","category":{"enable":true,"limit":5},"tag":{"enable":true,"limit":5}},"plugins":{"aplayer":{"enable":false,"audio":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}}};
-    REDEFINE.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"hoxiansen.top","root":"/","language":"zh-CN","path":"search.json"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"https://oss.hoxiansen.top/wallpapers/5.jpg","skip_dirs":["/pages/"]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"https://oss.hoxiansen.top/wallpapers/4.jpg","dark":"https://oss.hoxiansen.top/wallpapers/4-dark.jpg"},"title":"HOXIANSEN's Blog","subtitle":{"text":["指不定哪天就寄了"],"typing_speed":70,"backing_speed":80,"starting_delay":800,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"More":{"icon":"fa-regular fa-wand-magic-sparkles","submenus":{"碎碎念":"/essay"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","announcement":null,"links":null},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
     
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/fontawesome/regular.min.css">
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/regular.min.css">
     
     
     
@@ -99,13 +111,17 @@
 
     
 
-    <div class="page-main-content">
+    <div class="main-content-container">
 
-        <div class="page-main-content-top">
-            <header class="menu-wrapper">
+        <div class="main-content-header">
+            <header class="navbar-container">
     
-    <div class="menu-content">
+    <div class="navbar-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://oss.hoxiansen.top/images/recycle.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 
@@ -116,11 +132,11 @@
 
         <div class="right">
             <!-- PC -->
-            <div class="pc">
-                <ul class="menu-list">
+            <div class="desktop">
+                <ul class="navbar-list">
                     
                         
-                            <li class="menu-item">
+                            <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class="" 
                                     href="/"  >
@@ -136,7 +152,7 @@
                             </li>
                     
                         
-                            <li class="menu-item">
+                            <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class="" 
                                     href="/archives"  >
@@ -152,7 +168,7 @@
                             </li>
                     
                         
-                            <li class="menu-item">
+                            <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class="has-dropdown" 
                                     href="#" onClick="return false;">
@@ -177,7 +193,7 @@
                             </li>
                     
                     
-                        <li class="menu-item search search-popup-trigger">
+                        <li class="navbar-item search search-popup-trigger">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </li>
                     
@@ -188,19 +204,19 @@
                 
                     <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
                 
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Mobile drawer -->
-    <div class="menu-drawer">
-        <ul class="drawer-menu-list">
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
             
                 
-                    <li class="drawer-menu-item flex-center">
+                    <li class="drawer-navbar-item flex-center">
                         <a class="" 
                         href="/"  >
                              
@@ -215,7 +231,7 @@
                     
             
                 
-                    <li class="drawer-menu-item flex-center">
+                    <li class="drawer-navbar-item flex-center">
                         <a class="" 
                         href="/archives"  >
                              
@@ -230,7 +246,7 @@
                     
             
                 
-                    <li class="drawer-menu-item flex-center">
+                    <li class="drawer-navbar-item flex-center">
                         <a class="has-dropdown" 
                         href="#" onClick="return false;">
                             
@@ -261,7 +277,9 @@
 
         </div>
 
-        <div class="page-main-content-middle">
+        <div class="main-content-body">
+
+            
 
             <div class="main-content">
 
@@ -294,14 +312,14 @@
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-03-10 15:14:49</span>
+        <span class="desktop">2023-03-10 15:14:49</span>
         <span class="mobile">2023-03-10 15:14</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-03-14 15:14:39</span>
+            <span class="desktop">2023-03-14 15:14:39</span>
             <span class="mobile">2023-03-14 15:14</span>
             <span class="hover-info">更新</span>
         </span>
@@ -343,7 +361,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-file-word"></i>&nbsp;<span>401 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>401 字</span>
         </span>
     
     
@@ -351,10 +369,6 @@
             <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
     
 </div>
 
@@ -407,14 +421,19 @@
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：循环队列的边界判定</li>
-        <li>本文作者：hoxiansen</li>
-        <li>创建时间：2023-03-10 15:14:49</li>
+        <li><strong>标题:</strong> 循环队列的边界判定</li>
+        <li><strong>作者:</strong> hoxiansen</li>
+        <li><strong>创建于:</strong> 2023-03-10 15:14:49</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-03-14 15:14:39
+            </li>
+        
         <li>
-            本文链接：https://hoxiansen.top/2023/03/10/循环队列的边界判定/
+            <strong>链接:</strong> https://hoxiansen.top/2023/03/10/循环队列的边界判定/
         </li>
         <li>
-            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
         </li>
     </ul>
 </div>
@@ -440,21 +459,7 @@
                 </ul>
             
 
-            <div class="recommended-article">
-  <div class="recommended-article-header">
-    <i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><span>推荐阅读</span>
-  </div>
-  <div class="recommended-article-group"><a class="recommended-article-item" href="/2023/01/06/怎么加快GitHub访问速度/" title="怎么加快GitHub访问速度" rel="bookmark">
-  <img src="https://oss.hoxiansen.top/wallpapers/1.jpg" alt="怎么加快GitHub访问速度">
-  <span class="title">怎么加快GitHub访问速度</span>
-</a><a class="recommended-article-item" href="/2023/03/03/链表反转/" title="链表反转" rel="bookmark">
-  <img src="https://oss.hoxiansen.top/wallpapers/3.jpg" alt="链表反转">
-  <span class="title">链表反转</span>
-</a><a class="recommended-article-item" href="/2023/03/06/Hexo进入离开页面动态修改标题/" title="Hexo进入离开页面动态修改标题" rel="bookmark">
-  <img src="https://oss.hoxiansen.top/wallpapers/0.jpg" alt="Hexo进入离开页面动态修改标题">
-  <span class="title">Hexo进入离开页面动态修改标题</span>
-</a></div>
-</div>
+            
 
             
                 <div class="article-nav">
@@ -545,12 +550,12 @@
                 
 
             </div>
-
-
+            
+            
 
         </div>
 
-        <div class="page-main-content-bottom">
+        <div class="main-content-footer">
             <footer class="footer">
     <div class="info-container">
         <div class="copyright-info">
@@ -578,19 +583,19 @@
         
         <div class="theme-info info-item">
             <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
-                <br> 
-            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.2.1</a>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.1</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="
                 
-                    https://beian.miit.gov.cn/
+                https://beian.miit.gov.cn
                 
                 ">浙ICP备20006526号-2</a></div>
         
         
         
-            <div id="start_time_div" style="display:none">
+            <div id="start_div" style="display:none">
                 2023/1/5 13:58:07
             </div>
             <div>
@@ -617,6 +622,10 @@
         
         
             
+                
+        
+                
+        
         
     </div>  
 </footer>
@@ -626,7 +635,7 @@
     
         <div class="post-tools">
             <div class="post-tools-container">
-    <ul class="tools-list">
+    <ul class="article-tools-list">
         <!-- TOC aside toggle -->
         
             <li class="right-bottom-tools page-aside-toggle">
@@ -646,9 +655,9 @@
         </div>
     
 
-    <div class="right-bottom-side-tools">
+    <div class="right-side-tools-container">
         <div class="side-tools-container">
-    <ul class="unfolded-tools-list">
+    <ul class="hidden-tools-list">
         <li class="right-bottom-tools tool-font-adjust-plus flex-center">
             <i class="fa-regular fa-magnifying-glass-plus"></i>
         </li>
@@ -679,10 +688,11 @@
         </li>
     </ul>
 
-    <ul class="folded-tools-list">
-        <li class="right-bottom-tools tool-toggle-show flex-center">
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
             <i class="fa-regular fa-cog fa-spin"></i>
         </li>
+        
         
     </ul>
 </div>
@@ -730,26 +740,29 @@
 
 
 
-<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/dark-light-toggle.js"></script>
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/navbarShrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/scrollTopBottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/lightDarkSwitch.js"></script>
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/local-search.js"></script>
-
-
-
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/code-block.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/localSearch.js"></script>
 
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/layouts/lazyload.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/codeBlock.js"></script>
 
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/runtime.js"></script>
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/layouts/odometer.min.js"></script>
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/assets/odometer-theme-minimal.css">
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/lazyload.js"></script>
 
 
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/Typed.min.js"></script>
+  <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/plugins/typed.js"></script>
 
 
 
@@ -758,19 +771,19 @@
 
 <div class="post-scripts pjax">
     
-        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/layouts/toc.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/plugins/tabs.js"></script>
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/tocToggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/toc.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/plugins/tabs.js"></script>
     
 </div>
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.2.1/source/js/libs/pjax.min.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/pjax.min.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         window.pjax = new Pjax({
             selectors: [
                 'head title',
                 '.page-container',
-                '.pjax'
+                '.pjax',
             ],
             history: true,
             debug: false,
@@ -783,13 +796,13 @@
         });
 
         document.addEventListener('pjax:send', () => {
-            REDEFINE.utils.pjaxProgressBarStart();
+            Global.utils.pjaxProgressBarStart();
         });
 
         document.addEventListener('pjax:complete', () => {
-            REDEFINE.utils.pjaxProgressBarEnd();
+            Global.utils.pjaxProgressBarEnd();
             window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            REDEFINE.refresh();
+            Global.refresh();
         });
     });
 </script>
