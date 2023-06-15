@@ -9,8 +9,10 @@
     <!-- preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
     
+    
+        
+            <link rel="preconnect" href="https://npm.elemecdn.com" crossorigin>
         
     
     <!--- Seo Part-->
@@ -20,23 +22,25 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="12345678910111213141516171819202122232425262728293031import java.util.Scanner;public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        Scanner sc &#x3D; new Scanner(System.in);">
+        <meta name="description" content="题目链接：有趣的数   我们把一个数称为有趣的，当且仅当：  它的数字只包含 0,1,2,3，且这四个数字都出现过至少一次。 所有的 0 都出现在所有的 1 之前，而所有的 2 都出现在所有的 3 之前。 最高位数字不为 0。  因此，符合我们定义的最小的有趣的数是 2013。 除此以外，4 位的有趣的数还有两个：2031 和 2301。 请计算恰好有 n 位的有趣的数的个数。 由于答案可能非常大">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCF201312-4有趣的数">
 <meta property="og:url" content="https://hoxiansen.top/2023/05/11/CCF201312-4%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031import java.util.Scanner;public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        Scanner sc &#x3D; new Scanner(System.in);">
+<meta property="og:description" content="题目链接：有趣的数   我们把一个数称为有趣的，当且仅当：  它的数字只包含 0,1,2,3，且这四个数字都出现过至少一次。 所有的 0 都出现在所有的 1 之前，而所有的 2 都出现在所有的 3 之前。 最高位数字不为 0。  因此，符合我们定义的最小的有趣的数是 2013。 除此以外，4 位的有趣的数还有两个：2031 和 2301。 请计算恰好有 n 位的有趣的数的个数。 由于答案可能非常大">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-11T07:49:51.000Z">
-<meta property="article:modified_time" content="2023-05-11T07:51:42.916Z">
+<meta property="article:modified_time" content="2023-06-15T02:50:59.304Z">
 <meta property="article:author" content="hoxiansen">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
     
+    
     <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="http://oss.hoxiansen.top/images/recycle.jpg" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="http://oss.hoxiansen.top/images/recycle.jpg">
+    <link rel="icon" type="image/png" href="/images/recycle.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/recycle.jpg">
     <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="http://oss.hoxiansen.top/images/recycle.jpg">
+    <link rel="shortcut icon" href="/images/recycle.jpg">
     <!--- Page Info-->
     
     <title>
@@ -48,7 +52,7 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/assets/fonts.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/assets/fonts.css">
     <!--- Font Part-->
     
     
@@ -70,15 +74,16 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"hoxiansen.top","root":"/","language":"zh-CN","path":"search.json"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"http://oss.hoxiansen.top/wallpapers/5.jpg","skip_dirs":["/pages/"]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"http://oss.hoxiansen.top/wallpapers/4.jpg","dark":"http://oss.hoxiansen.top/wallpapers/4-dark.jpg"},"title":"HOXIANSEN's Blog","subtitle":{"text":["指不定哪天就寄了"],"typing_speed":70,"backing_speed":80,"starting_delay":800,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"More":{"icon":"fa-regular fa-wand-magic-sparkles","submenus":{"碎碎念":"/essay"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","announcement":null,"links":null},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/placeholder.jpg","skip_dirs":["/pages/"]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/home-banner.jpg","dark":"/images/home-banner-dark.jpg"},"title":"HOXIANSEN's Blog","subtitle":{"text":["指不定哪天就寄了"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":70,"backing_speed":80,"starting_delay":800,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"More":{"icon":"fa-regular fa-wand-magic-sparkles","submenus":{"碎碎念":"/essay"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"YYYY-MM-DD","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
     Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
   </script>
     
     <!--- Fontawesome Part-->
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/fontawesome/regular.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/fontawesome/regular.min.css">
     
     
     
@@ -114,7 +119,7 @@
         <div class="left">
             
                 <a class="logo-image" href="/">
-                    <img src="http://oss.hoxiansen.top/images/recycle.jpg">
+                    <img src="/images/recycle.jpg">
                 </a>
             
             <a class="logo-title" href="/">
@@ -294,7 +299,7 @@
             
                 <div class="article-header">
                     <div class="avatar">
-                        <img src="http://oss.hoxiansen.top/images/recycle.jpg">
+                        <img src="/images/recycle.jpg">
                     </div>
                     <div class="info">
                         <div class="author">
@@ -312,26 +317,52 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-11 15:51:42</span>
-            <span class="mobile">2023-05-11 15:51</span>
+            <span class="desktop">2023-06-15 10:50:59</span>
+            <span class="mobile">2023-06-15 10:50</span>
             <span class="hover-info">更新</span>
         </span>
     
 
     
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>206 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>734 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -341,7 +372,38 @@
             
 
             <div class="article-content markdown-body">
-                <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="comment">//0 1 3</span></span><br><span class="line">        <span class="type">long</span>[][][][] dp = <span class="keyword">new</span> <span class="title class_">long</span>[n + <span class="number">1</span>][<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        000</span></span><br><span class="line"><span class="comment">        001</span></span><br><span class="line"><span class="comment">        100</span></span><br><span class="line"><span class="comment">        101</span></span><br><span class="line"><span class="comment">        110</span></span><br><span class="line"><span class="comment">        111</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">// 初始条件下只有2（且首位数字只能是2）</span></span><br><span class="line">        dp[<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">            dp[i][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>] = (dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> dp[n][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+                <p>题目链接：<a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3198/" >有趣的数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<blockquote>
+<p>我们把一个数称为有趣的，当且仅当：</p>
+<ol>
+<li>它的数字只包含 0,1,2,3，且这四个数字都出现过至少一次。</li>
+<li>所有的 0 都出现在所有的 1 之前，而所有的 2 都出现在所有的 3 之前。</li>
+<li>最高位数字不为 0。</li>
+</ol>
+<p>因此，符合我们定义的最小的有趣的数是 2013。</p>
+<p>除此以外，4 位的有趣的数还有两个：2031 和 2301。</p>
+<p>请计算恰好有 n 位的有趣的数的个数。</p>
+<p>由于答案可能非常大，只需要输出答案除以 10^9^ + 7 的余数。</p>
+</blockquote>
+<h2 id="浅析"><a href="#浅析" class="headerlink" title="浅析"></a>浅析</h2><p>由题意可得，有趣的数的首位只能是2。在拼凑到n位时其中的数字有以下几种状态：</p>
+<ol>
+<li>只有2  &#x3D;&#x3D;&gt;  后面只能放2，0，3</li>
+<li>已经有2，3  &#x3D;&#x3D;&gt;  后面只能放3，0</li>
+<li>已经有2，0  &#x3D;&#x3D;&gt;  后面只能放2，0，3，1</li>
+<li>已经有2，0，3  &#x3D;&#x3D;&gt;  后面只能放0，1，3</li>
+<li>已经有2，0，1  &#x3D;&#x3D;&gt;  后面只能放2，3，1</li>
+<li>已经有2，0，1，3  &#x3D;&#x3D;&gt;  后面只能放1，3</li>
+</ol>
+<p>定义一个dp数组<code>dp[n][2][2][2]</code>，表示在拼凑到n位时，0、1、3这3个数字分别是否已经存在（0表示不存在1表示已存在）。由上面6中状态可得出递推公式如下：</p>
+<ol>
+<li><code>dp[n][0][0][0] = dp[n-1][0][0][0];</code></li>
+<li><code>dp[n][0][0][1] = dp[n-1][0][0][1] + dp[n-1][0][0][0];</code></li>
+<li><code>dp[n][1][0][0] = 2 * dp[n-1][1][0][0] + dp[n-1][0][0][0];</code> &#x2F;&#x2F; 乘2是因为可以放0也可以放2</li>
+<li><code>dp[n][1][0][1] = 2 * dp[n-1][1][0][1] + dp[n-1][1][0][0] + dp[n-1][0][0][1];</code> &#x2F;&#x2F; 乘2是因为可以放0也可以放3</li>
+<li><code>dp[n][1][1][0] = 2 * dp[n-1][1][1][0] + dp[n-1][1][0][0];</code> &#x2F;&#x2F; 乘2是因为可以放1也可以放2</li>
+<li><code>dp[n][1][1][1] = 2 * dp[n-1][1][1][1] + dp[n-1][1][0][1] + dp[n-1][1][1][0];</code> &#x2F;&#x2F; 乘2是因为可以放1也可以放3</li>
+</ol>
+<h2 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="comment">//0 1 3</span></span><br><span class="line">        <span class="type">long</span>[][][][] dp = <span class="keyword">new</span> <span class="title class_">long</span>[n + <span class="number">1</span>][<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        000</span></span><br><span class="line"><span class="comment">        001</span></span><br><span class="line"><span class="comment">        100</span></span><br><span class="line"><span class="comment">        101</span></span><br><span class="line"><span class="comment">        110</span></span><br><span class="line"><span class="comment">        111</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">// 初始条件下只有2（且首位数字只能是2）</span></span><br><span class="line">        dp[<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">            dp[i][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>] = (dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>] = (<span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>][<span class="number">1</span>] + dp[i - <span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>][<span class="number">0</span>]) % <span class="number">1000000007</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> dp[n][<span class="number">1</span>][<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
             </div>
 
             
@@ -353,7 +415,7 @@
         <li><strong>创建于:</strong> 2023-05-11 15:49:51</li>
         
             <li>
-                <strong>更新于:</strong> 2023-05-11 15:51:42
+                <strong>更新于:</strong> 2023-06-15 10:50:59
             </li>
         
         <li>
@@ -369,11 +431,34 @@
             
 
             
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
             
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/06/14/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">树状数组</span>
+                                    <span class="post-nav-item">上一篇</span>
+                                </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
@@ -448,7 +533,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">CCF201312-4有趣的数</div>
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E6%9E%90"><span class="nav-text">浅析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-text">AC代码：</span></a></li></ol>
 
     </div>
 </div>
@@ -495,7 +580,7 @@
         <div class="theme-info info-item">
             <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
                 <br>
-            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.1</a>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.5</a>
         </div>
         
             <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="
@@ -651,29 +736,29 @@
 
 
 
-<script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/navbarShrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/scrollTopBottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/lightDarkSwitch.js"></script>
+<script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/utils.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/main.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/layouts/navbarShrink.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/scrollTopBottom.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/lightDarkSwitch.js"></script>
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/localSearch.js"></script>
-
-
-
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/codeBlock.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/localSearch.js"></script>
 
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/lazyload.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/codeBlock.js"></script>
 
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/runtime.js"></script>
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/odometer.min.js"></script>
-    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/assets/odometer-theme-minimal.css">
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/layouts/lazyload.js"></script>
 
 
 
-  <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/Typed.min.js"></script>
-  <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/plugins/typed.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/runtime.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/libs/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/libs/Typed.min.js"></script>
+  <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/plugins/typed.js"></script>
 
 
 
@@ -682,12 +767,12 @@
 
 <div class="post-scripts pjax">
     
-        <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/tools/tocToggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/layouts/toc.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/plugins/tabs.js"></script>
+        <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/tools/tocToggle.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/libs/anime.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/layouts/toc.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/plugins/tabs.js"></script>
     
 </div>
 
 
-    <script src="//evan.beee.top/projects/hexo-theme-redefine/v2.1.1/source/js/libs/pjax.min.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.1.5/source/js/libs/pjax.min.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         window.pjax = new Pjax({
